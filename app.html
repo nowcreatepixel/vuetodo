@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+     
+        
+        <div id="app">
+
+            <section class="title"><h1>TODO List</h1></section>
+
+            <section class="status">
+                <p v-if="thingsToDo.length == 0" >You currently don't have any things to do</p>
+                <p v-else>You currently do have things to do</p>
+            </section>
+
+            <ul v-if="thingsToDo.length !== 0" >
+            <todo-item 
+             v-for="item in thingsToDo"
+             v-bind:todo="item"
+             v-bind:key="item.id"
+             ></todo-item>
+             </ul>
+              
+              <form id="myform">
+             <input type="text" class="inputItem" name="item"></input>
+             <button v-on:click="addItem" type="submit" value="Submit">Submit</button>
+             </form>
+
+
+             <button v-on:click="removeAll">Remove All</button>
+
+             
+
+         
+        </div>
+
+     
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <script src="app.js" async defer></script>
+    </body>
+</html>
