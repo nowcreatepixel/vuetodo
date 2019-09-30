@@ -11,11 +11,7 @@ Vue.component('todo-item', {
 var app = new Vue({
     el: '#app',
     data: {
-        thingsToDo: [
-            { text: 'Learn Javascript'},
-            { text: 'Learn Vue'},
-            { text: 'Build Something Awesome'}
-        ]
+        thingsToDo: items
     },
     methods: {
         addItem: function (e) {

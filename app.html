@@ -17,7 +17,8 @@
 
             <section class="status">
                 <p v-if="thingsToDo.length == 0" >You currently don't have any things to do</p>
-                <p v-else>You currently do have things to do</p>
+                <p v-else-if="thingsToDo.length == 1" >You currently have {{thingsToDo.length}} thing to do</p>
+                <p v-else>You currently have {{thingsToDo.length}} things to do</p>
             </section>
 
             <ul v-if="thingsToDo.length !== 0" >
@@ -29,12 +30,12 @@
              </ul>
               
               <form id="myform">
-             <input type="text" class="inputItem" name="item"></input>
-             <button v-on:click="addItem" type="submit" value="Submit">Submit</button>
+             <input type="text" class="inputItem" name="item" placeholder="add something"></input>
+             <button v-on:click="addItem" type="submit" value="Submit">Add</button>
              </form>
 
 
-             <button v-on:click="removeAll">Remove All</button>
+             <button v-if="thingsToDo.length !== 0" v-on:click="removeAll" class="remove">Remove All</button>
 
              
 
